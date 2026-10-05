@@ -1,0 +1,69 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VC Global Trade | B2B Sourcing & Commercial Representation</title>
+    <script src="https://tailwindcss.com"></script>
+    <script src="https://jsdelivr.net"></script>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        .navy-bg { background-color: #0B192C; }
+        .navy-border { border-color: #1E3E62; }
+        .gold-text { color: #FFB200; }
+        .gold-bg { background-color: #FFB200; }
+        .gold-border { border-color: #FFB200; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Top Security & Role Bar -->
+    <header class="navy-bg border-b navy-border px-6 py-3 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center space-x-3">
+            <div class="gold-bg text-slate-950 font-black px-3 py-1.5 rounded text-lg tracking-wider">VC</div>
+            <div>
+                <h1 class="font-bold text-base tracking-wide text-white">VC Global Trade</h1>
+                <p class="text-xs text-slate-400">China → Brasil | B2B Sourcing</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-4">
+            <div class="text-xs bg-slate-900 px-3 py-1.5 rounded-full border navy-border flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-slate-300">Perfil Ativo:</span>
+                <select id="userRole" onchange="changeRole(this.value)" class="bg-slate-800 text-amber-400 font-semibold rounded px-2 py-0.5 outline-none cursor-pointer">
+                    <option value="admin">👩‍💼 Administradora (Você)</option>
+                    <option value="cliente">🇧🇷 Cliente (Importador)</option>
+                    <option value="fornecedor">🇨🇳 Fornecedor (Fábrica)</option>
+                    <option value="logistica">🚚 Logística (Agente)</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 navy-bg border-r navy-border p-4 flex flex-col justify-between hidden md:flex">
+            <nav class="space-y-1">
+                <button onclick="switchTab('dashboard')" id="btn-dashboard" class="w-full flex items-center space-x-3 px-4 py-2.5 rounded-lg text-sm font-medium bg-blue-900/40 text-amber-400 border border-blue-800/50 transition"><i class="fa-solid fa-chart-pie w-5"></i><span>Dashboard</span></button>
+                <button onclick="switchTab('clientes')" id="btn-clientes" class="w-full flex items-center space-x-3 px-4 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-900 transition"><i class="fa-solid fa-building-user w-5"></i><span>Clientes</span></button>
+                <button onclick="switchTab('catalogo')" id="btn-catalogo" class="w-full flex items-center space-x-3 px-4 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-900 transition"><i class="fa-solid fa-boxes-stacked w-5"></i><span>Catálogo B2B</span></button>
+                <button onclick="switchTab('cotacao')" id="btn-cotacao" class="w-full flex items-center space-x-3 px-4 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-900 transition"><i class="fa-solid fa-calculator w-5"></i><span>Simulador Fiscal</span></button>
+                <button onclick="switchTab('pedidos')" id="btn-pedidos" class="w-full flex items-center space-x-3 px-4 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-900 transition"><i class="fa-solid fa-ship w-5"></i><span>Pedidos & Rastreio</span></button>
+            </nav>
+            <div class="p-3 bg-slate-900/80 rounded-lg border navy-border text-xs">
+                <p class="text-slate-400 font-medium">Ambiente Protegido</p>
+                <p class="text-emerald-400 mt-1"><i class="fa-solid fa-shield-halved mr-1"></i> Blindagem Ativa</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 bg-slate-900 p-6 overflow-y-auto">
+           
+            <!-- TAB: DASHBOARD -->
+            <div id="tab-dashboard" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-slate-950 p-4 rounded-xl border navy-border"><p class="text-xs text-slate-400">Clientes Ativos</p><h3 class="text-2xl font-bold mt-1 text-white" id="stat-clientes">86</h3></div>
+                    <div class="bg-slate-950 p-4 rounded-xl border navy-border"><p class="text-xs text-slate-400">Compras na China</p><h3 class="text-2xl font-bold mt-1 text-amber-400" id="stat-compras">US$ 48.500</h3></div>
+                    <div class="bg-slate-950 p-4 rounded-xl border navy-border"><p class="text-xs text-slate-400">Mercador
